@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include <oclero/qlementine/qlementine_export.h>
 #include <oclero/qlementine/style/QlementineStyle.hpp>
 #include <oclero/qlementine/utils/RadiusesF.hpp>
 
@@ -17,86 +18,86 @@ namespace oclero::qlementine {
 [[maybe_unused]] static constexpr auto QLEMENTINE_PI = 3.14159265358979323846;
 
 /// Gets the device pixel ratio for the QWidget.
-double getPixelRatio(QWidget const* w);
+QLEMENTINE_EXPORT double getPixelRatio(QWidget const* w);
 
 /// Parses the text to detect the MenuItem's label and shortcut, usually separated by a tab.
-std::tuple<QString, QString> getMenuLabelAndShortcut(QString const& text);
+QLEMENTINE_EXPORT std::tuple<QString, QString> getMenuLabelAndShortcut(QString const& text);
 
 /// Draws an antialiased pixel-perfect border for the ellipsis.
-void drawEllipseBorder(QPainter* p, QRectF const& rect, QColor const& color, qreal const borderWidth);
+QLEMENTINE_EXPORT void drawEllipseBorder(QPainter* p, QRectF const& rect, QColor const& color, qreal const borderWidth);
 
 /// Generates a QPainterPath that contains a rounded rectangle with different radiuses for each angle.
-QPainterPath getMultipleRadiusesRectPath(QRectF const& rect, RadiusesF const& radiuses);
+QLEMENTINE_EXPORT QPainterPath getMultipleRadiusesRectPath(QRectF const& rect, RadiusesF const& radiuses);
 
 /// Draws an antialiased rect.
-void drawRoundedRect(QPainter* p, QRectF const& rect, QBrush const& brush, qreal const radius = 0.);
+QLEMENTINE_EXPORT void drawRoundedRect(QPainter* p, QRectF const& rect, QBrush const& brush, qreal const radius = 0.);
 
 // Draws an antialiased rect with different radiuses.
-void drawRoundedRect(QPainter* p, QRectF const& rect, QBrush const& brush, RadiusesF const& radiuses);
+QLEMENTINE_EXPORT void drawRoundedRect(QPainter* p, QRectF const& rect, QBrush const& brush, RadiusesF const& radiuses);
 
 /// Draws an antialiased rect.
-void drawRoundedRect(QPainter* p, QRect const& rect, QBrush const& brush, qreal const radius = 0.);
+QLEMENTINE_EXPORT void drawRoundedRect(QPainter* p, QRect const& rect, QBrush const& brush, qreal const radius = 0.);
 
 // Draws an antialiased rect with different radiuses.
-void drawRoundedRect(QPainter* p, QRect const& rect, QBrush const& brush, RadiusesF const& radiuses);
+QLEMENTINE_EXPORT void drawRoundedRect(QPainter* p, QRect const& rect, QBrush const& brush, RadiusesF const& radiuses);
 
 /// Draws an antialiased pixel-perfect border for the rounded rect.
-void drawRoundedRectBorder(
+QLEMENTINE_EXPORT void drawRoundedRectBorder(
   QPainter* p, QRectF const& rect, QColor const& color, qreal const borderWidth, qreal const radius = 0.);
 
 /// Draws an antialiased pixel-perfect border for the rounded rect.
-void drawRoundedRectBorder(
+QLEMENTINE_EXPORT void drawRoundedRectBorder(
   QPainter* p, QRect const& rect, QColor const& color, qreal const borderWidth, qreal const radius = 0.);
 
 /// Draws an antialiased pixel-perfect border for the rounded rect.
-void drawRoundedRectBorder(
+QLEMENTINE_EXPORT void drawRoundedRectBorder(
   QPainter* p, QRectF const& rect, QColor const& color, qreal const borderWidth, RadiusesF const& radiuses = {});
 
 /// Draws an antialiased pixel-perfect border for the rounded rect.
-void drawRoundedRectBorder(
+QLEMENTINE_EXPORT void drawRoundedRectBorder(
   QPainter* p, QRect const& rect, QColor const& color, qreal const borderWidth, RadiusesF const& radiuses = {});
 
 /// Draws a pixel-perfect border for the rect.
-void drawRectBorder(QPainter* p, QRect const& rect, QColor const& color, qreal const borderWidth);
+QLEMENTINE_EXPORT void drawRectBorder(QPainter* p, QRect const& rect, QColor const& color, qreal const borderWidth);
 
 /// Draws a pixel-perfect border for the rect.
-void drawRectBorder(QPainter* p, QRectF const& rect, QColor const& color, qreal const borderWidth);
+QLEMENTINE_EXPORT void drawRectBorder(QPainter* p, QRectF const& rect, QColor const& color, qreal const borderWidth);
 
 /// Draws an antialiased triangle.
-void drawRoundedTriangle(QPainter* p, QRectF const& rect, qreal const radius = 0.);
+QLEMENTINE_EXPORT void drawRoundedTriangle(QPainter* p, QRectF const& rect, qreal const radius = 0.);
 
 /// Draws a checkerboard texture.
-void drawCheckerboard(
+QLEMENTINE_EXPORT void drawCheckerboard(
   QPainter* p, const QRectF& rect, const QColor& darkColor, const QColor& lightColor, const qreal cellWidth);
 
 /// Draws the value of a progress bar. A clipping mask is used to ensure the rectangle radiuses are respected
 /// even for values close to min or max.
-void drawProgressBarValueRect(QPainter* p, QRect const& rect, QColor const& color, qreal min, qreal max, qreal value,
+QLEMENTINE_EXPORT void drawProgressBarValueRect(QPainter* p, QRect const& rect, QColor const& color, qreal min, qreal max, qreal value,
   qreal const radius = 0., bool inverted = false);
 
 /// Draws a color mark. Will draw a border if the contrast between color and background is not high enough.
-void drawColorMark(QPainter* p, QRect const& rect, const QColor& color, const QColor& borderColor, int borderWidth = 1);
+QLEMENTINE_EXPORT void drawColorMark(QPainter* p, QRect const& rect, const QColor& color, const QColor& borderColor, int borderWidth = 1);
 
 /// Draws the border of a color mark.
-void drawColorMarkBorder(QPainter* p, QRect const& rect, const QColor& borderColor, int borderWidth);
+QLEMENTINE_EXPORT void drawColorMarkBorder(QPainter* p, QRect const& rect, const QColor& borderColor, int borderWidth);
 
 /// Draws a semi-transparent red rectangle.
-void drawDebugRect(const QRect& rect, QPainter* p);
+QLEMENTINE_EXPORT void drawDebugRect(const QRect& rect, QPainter* p);
 
 /// Function that draws and generates a QPixmap.
 using PixmapMakerFunc = std::function<QPixmap(const QSize& s, const QColor& c)>;
 
 /// Utility to add QPixmaps to all states of the QIcon. The callback in parameter will be called to draw each QPixmap.
-void updateUncheckableButtonIconPixmap(QIcon& icon, const QSize& size, Theme const& theme, const PixmapMakerFunc& func);
+QLEMENTINE_EXPORT void updateUncheckableButtonIconPixmap(QIcon& icon, const QSize& size, Theme const& theme, const PixmapMakerFunc& func);
 
 /// Gets the path to draw the menu arrow in a Button.
-QPainterPath getMenuIndicatorPath(const QRect& rect);
+QLEMENTINE_EXPORT QPainterPath getMenuIndicatorPath(const QRect& rect);
 
 /// Draws the combobox double arrow.
-void drawComboBoxIndicator(const QRect& rect, QPainter* p);
+QLEMENTINE_EXPORT void drawComboBoxIndicator(const QRect& rect, QPainter* p);
 
 /// Draws the checkbox indicator (i.e. a check mark).
-void drawCheckBoxIndicator(const QRect& rect, QPainter* p, qreal progress = 1.);
+QLEMENTINE_EXPORT void drawCheckBoxIndicator(const QRect& rect, QPainter* p, qreal progress = 1.);
 
 /// Draws the partially checked checkbox indicator (i.e. a dash).
 void drawPartiallyCheckedCheckBoxIndicator(const QRect& rect, QPainter* p, qreal progress = 1.);
